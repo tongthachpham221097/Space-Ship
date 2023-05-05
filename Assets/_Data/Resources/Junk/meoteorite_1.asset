@@ -14,3 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   junkName: Junk
   hpMax: 2
+  dropList:
+  - itemSO: {fileID: 11400000, guid: 15bacf6b2014e3044949519aebc502bb, type: 2}
+    dropRate: 0
+    minDrop: 0
+    maxDrop: 0

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class JunkDamageReceiver : DamageReceiver
 {
-    [Header("Junk")]
     [SerializeField] protected JunkCtrl junkCtrl;
+    public JunkCtrl JunkCtrl { get => junkCtrl; }
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -19,7 +19,19 @@ public class JunkDamageReceiver : DamageReceiver
     }
     protected override void OnDead()
     {
+        this.OnDeadFX();
         this.junkCtrl.JunkDespawn.DespawnObject();
+        DropManager.Instance.Drop(this.junkCtrl.JunkSO.dropList);
+    }
+    protected virtual void OnDeadFX()
+    {
+        string fxName = this.GetOnDeadFXName();
+        Transform fxOnDead = FXSpawner.Instance.Spawn(fxName, transform.position, transform.rotation);
+        fxOnDead.gameObject.SetActive(true);
+    }
+    protected virtual string GetOnDeadFXName()
+    {
+        return FXSpawner.smoke1;
     }
     public override void Reborn()
     {

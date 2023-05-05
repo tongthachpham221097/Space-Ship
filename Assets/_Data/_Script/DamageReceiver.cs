@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class DamageReceiver : LoboMonoBehaviour
+public abstract class DamageReceiver : LoboMonoBehaviour
 {
     [Header("Damage Receiver")]
     [SerializeField] protected SphereCollider sphereCollider;
@@ -30,7 +30,7 @@ public class DamageReceiver : LoboMonoBehaviour
         if (this.sphereCollider != null) return;
         this.sphereCollider = GetComponent<SphereCollider>();
         this.sphereCollider.isTrigger = true;
-        this.sphereCollider.radius = 0.2f;
+        this.sphereCollider.radius = 0.15f;
         Debug.Log(transform.name + ": LoadCollider", gameObject);
     }
     public virtual void Reborn()
@@ -61,8 +61,5 @@ public class DamageReceiver : LoboMonoBehaviour
         this.isDead = true;
         this.OnDead();
     }
-    protected virtual void OnDead()
-    {
-        //For override
-    }
+    protected abstract void OnDead();
 }

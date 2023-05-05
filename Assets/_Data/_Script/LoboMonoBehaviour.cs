@@ -9,6 +9,7 @@ public class LoboMonoBehaviour : MonoBehaviour
     {
         this.LoadComponents();
         this.ResetValue();
+        //this.LoadComponents();
     }
 
     protected virtual void Awake()
