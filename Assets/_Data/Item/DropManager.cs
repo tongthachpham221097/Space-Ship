@@ -13,7 +13,7 @@ public class DropManager : LoboMonoBehaviour
         if (DropManager.instance != null) Debug.LogError("only 1 DropManager allow to exist");
         DropManager.instance = this;
     }
-    public virtual void Drop(List<DropRate> dropList)
+    public virtual void Drop(List<ItemDropRate> dropList)
     {
         Debug.Log(dropList[0].itemSO.itemName);
     }

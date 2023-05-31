@@ -26,7 +26,7 @@ public class JunkSpawnerCtrl : LoboMonoBehaviour
     protected virtual void LoadSpawnPoints()
     {
         if (this.spawnPoints != null) return;
-        this.spawnPoints = Transform.FindAnyObjectByType<JunkSpawnPoints>();
+        this.spawnPoints = Transform.FindAnyObjectByType<SpawnPoints>();
         Debug.Log(transform.name + ": LoadSpawnPoints", gameObject);
     }
 }

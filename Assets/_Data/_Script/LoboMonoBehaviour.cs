@@ -32,5 +32,9 @@ public class LoboMonoBehaviour : MonoBehaviour
     {
         //For override
     }
+    protected virtual void OnDisable()
+    {
+
+    }
 
 }
